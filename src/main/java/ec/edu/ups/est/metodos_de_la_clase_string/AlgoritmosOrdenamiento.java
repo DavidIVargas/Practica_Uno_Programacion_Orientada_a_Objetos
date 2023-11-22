@@ -9,6 +9,7 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
  * @author davidvargas
  */
 public class AlgoritmosOrdenamiento {
+    //El método de ordenamiento burbuja consiste en comparar cada elemento de la estructura con el siguiente e intercambiándolos si corresponde
     public static void burbuja(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -21,7 +22,8 @@ public class AlgoritmosOrdenamiento {
             }
         }
     }
-
+    //consiste en realizar una búsqueda binaria en lugar de una búsqueda secuencial, para insertar 
+    //un elemento en la parte izquierda del arreglo, que ya se encuentra ordenado.
     public static void insercion(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -35,7 +37,8 @@ public class AlgoritmosOrdenamiento {
             arr[j + 1] = key;
         }
     }
-
+    // buscar el menor elemento e intercambiarlo por el elemento en la primera posición. 
+    //Luego se busca el segundo elemento más pequeño del arreglo y se intercambia con el elemento de la segunda posición.
     public static void seleccion(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -49,7 +52,7 @@ public class AlgoritmosOrdenamiento {
             arr[i] = temp;
         }
     }
-
+    //consiste en partir una estructura en mitades, ordenar cada mitad y luego intercalar ordenadamente ambas mitades.
     public static void mergeSort(int[] arr, int l, int r) {
         if (l < r) {
             int m = (l + r) / 2;
@@ -96,7 +99,8 @@ public class AlgoritmosOrdenamiento {
             k++;
         }
     }
-
+    //consiste en acomodar un elemento llamado Pivot en su posición definitiva, 
+    //luego ordenar los elementos menores al Pivot y a continuación ordenar los elementos mayores al Pivot.
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -105,7 +109,7 @@ public class AlgoritmosOrdenamiento {
             quickSort(arr, pi + 1, high);
         }
     }
-
+    
     public static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1);
