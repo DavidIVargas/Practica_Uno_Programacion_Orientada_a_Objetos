@@ -143,7 +143,7 @@ public class AlgoritmosOrdenamiento {
 
         return i + 1;
     }
-    
+/*    
     public static void heapSort(int[] arr) {
     int n = arr.length;
 
@@ -188,5 +188,5 @@ public static void heapify(int[] arr, int n, int i) {
         // Recursivamente heapify el subárbol afectado
         heapify(arr, n, largest);
     }
-}
+*/
 }
