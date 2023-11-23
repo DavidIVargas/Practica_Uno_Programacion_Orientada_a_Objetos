@@ -9,7 +9,11 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
  * @author davidvargas
  */
 public class AlgoritmosOrdenamiento {
-    //El método de ordenamiento burbuja consiste en comparar cada elemento de la estructura con el siguiente e intercambiándolos si corresponde
+    /*
+    Recorre el arreglo múltiples veces.
+    Compara cada elemento con el siguiente e intercambia si están en el orden incorrecto, 
+    llevando los elementos más grandes hacia el final del arreglo en cada pasada.
+    */
     public static void burbuja(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -22,8 +26,11 @@ public class AlgoritmosOrdenamiento {
             }
         }
     }
-    //consiste en realizar una búsqueda binaria en lugar de una búsqueda secuencial, para insertar 
-    //un elemento en la parte izquierda del arreglo, que ya se encuentra ordenado.
+    /*
+    Itera sobre el arreglo.
+    Para cada elemento, lo compara con los elementos a su izquierda en el arreglo ordenado, 
+    insertándolo en la posición correcta y desplazando los elementos mayores una posición hacia la derecha.
+    */
     public static void insercion(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
@@ -37,8 +44,10 @@ public class AlgoritmosOrdenamiento {
             arr[j + 1] = key;
         }
     }
-    // buscar el menor elemento e intercambiarlo por el elemento en la primera posición. 
-    //Luego se busca el segundo elemento más pequeño del arreglo y se intercambia con el elemento de la segunda posición.
+    /*
+    Busca el elemento más pequeño en el arreglo y lo intercambia con el primer elemento.
+    Luego busca el segundo elemento más pequeño y lo intercambia con el segundo lugar, y así sucesivamente.
+    */
     public static void seleccion(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -52,7 +61,10 @@ public class AlgoritmosOrdenamiento {
             arr[i] = temp;
         }
     }
-    //consiste en partir una estructura en mitades, ordenar cada mitad y luego intercalar ordenadamente ambas mitades.
+    /*
+    Divide el arreglo en mitades hasta que queden subarreglos de tamaño 1.
+    Luego combina (mezcla) los subarreglos ordenadamente, fusionando gradualmente en orden ascendente.
+    */
     public static void mergeSort(int[] arr, int l, int r) {
         if (l < r) {
             int m = (l + r) / 2;
@@ -99,8 +111,10 @@ public class AlgoritmosOrdenamiento {
             k++;
         }
     }
-    //consiste en acomodar un elemento llamado Pivot en su posición definitiva, 
-    //luego ordenar los elementos menores al Pivot y a continuación ordenar los elementos mayores al Pivot.
+    /*
+    Elige un elemento llamado pivote y coloca todos los elementos menores a su izquierda y los mayores a su derecha.
+    Luego repite el proceso de forma recursiva para los subarreglos izquierdo y derecho del pivote.
+    */
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -129,4 +143,50 @@ public class AlgoritmosOrdenamiento {
 
         return i + 1;
     }
+    
+    public static void heapSort(int[] arr) {
+    int n = arr.length;
+
+    // Construir un heap (reorganizar el arreglo)
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    // Extraer elementos del heap uno por uno
+    for (int i = n - 1; i > 0; i--) {
+        // Mover la raíz actual al final
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+
+        // Llamar a heapify en el heap reducido
+        heapify(arr, i, 0);
+    }
+}
+
+public static void heapify(int[] arr, int n, int i) {
+    int largest = i; // Inicializar el nodo más grande como raíz
+    int leftChildIdx = 2 * i + 1; // índice del hijo izquierdo
+    int rightChildIdx = 2 * i + 2; // índice del hijo derecho
+
+    // Si el hijo izquierdo es más grande que la raíz
+    if (leftChildIdx < n && arr[leftChildIdx] > arr[largest]) {
+        largest = leftChildIdx;
+    }
+
+    // Si el hijo derecho es más grande que el nodo más grande hasta ahora
+    if (rightChildIdx < n && arr[rightChildIdx] > arr[largest]) {
+        largest = rightChildIdx;
+    }
+
+    // Si el nodo más grande no es la raíz
+    if (largest != i) {
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        // Recursivamente heapify el subárbol afectado
+        heapify(arr, n, largest);
+    }
+}
 }

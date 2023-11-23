@@ -9,6 +9,7 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
  * @author davidvargas
  */
 public class TiempoYOrdenamiento {
+
     public static void medirTiempo(int[] arr, String nombreAlgoritmo) {
         long startTime = System.nanoTime();
         switch (nombreAlgoritmo) {
@@ -26,6 +27,9 @@ public class TiempoYOrdenamiento {
                 break;
             case "QuickSort":
                 AlgoritmosOrdenamiento.quickSort(arr, 0, arr.length - 1);
+                break;
+            case "HeapSort":
+                AlgoritmosOrdenamiento.heapSort(arr);
                 break;
             default:
                 System.out.println("Algoritmo no reconocido");
