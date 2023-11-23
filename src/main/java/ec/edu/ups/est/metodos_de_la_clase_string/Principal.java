@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class Principal {
 
     public static void main(String[] args) {
+        //TiempoYOrdenamiento obj = new TiempoYOrdenamiento();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de datos para el vector:");
         int cantidadDatos = scanner.nextInt();
@@ -50,11 +51,11 @@ public class Principal {
 
         TiempoYOrdenamiento.medirTiempo(copiaVector, "QuickSort");
         System.out.println("Ordenado con QuickSort: " + Arrays.toString(copiaVector));
-
+/*
         copiaVector = Arrays.copyOf(vector, vector.length);
         TiempoYOrdenamiento.medirTiempo(copiaVector, "HeapSort");
         System.out.println("Ordenado con HeapSort: " + Arrays.toString(copiaVector));
-
+*/
     }
 
 }
