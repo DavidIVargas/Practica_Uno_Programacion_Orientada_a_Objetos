@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class Principal {
 
     public static void main(String[] args) {
-        //TiempoYOrdenamiento obj = new TiempoYOrdenamiento();
+        
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de datos para el vector:");
         int cantidadDatos = scanner.nextInt();
