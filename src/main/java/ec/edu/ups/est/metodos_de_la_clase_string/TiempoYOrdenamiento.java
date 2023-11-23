@@ -29,8 +29,11 @@ public class TiempoYOrdenamiento {
                 AlgoritmosOrdenamiento.quickSort(arr, 0, arr.length - 1);
                 break;
         }
+// Obtiene el tiempo final y calcula la diferencia para obtener el tiempo de ejecución
         long endTime = System.nanoTime();
         long tiempoEjecucion = endTime - startTime;
+
+        // Muestra el tiempo de ejecución del algoritmo en nanosegundos
         System.out.println("Tiempo de ejecución de " + nombreAlgoritmo + ": " + tiempoEjecucion + " nanosegundos");
     }
 }

@@ -35,12 +35,12 @@ public class Principal {
         // Se crea una copia del vector para cada algoritmo de ordenamiento
         int[] copiaVector = Arrays.copyOf(vector, vector.length);
 
-        // Se mide y muestra el tiempo de ejecución del algoritmo de Burbuja
+        // Se mide y muestra el tiempo de ejecución del algoritmo de Burbuja se repiten los pasos en todos los algoritmos
         TiempoYOrdenamiento.medirTiempo(copiaVector, "Burbuja");
         System.out.println("Ordenado con Burbuja: " + Arrays.toString(copiaVector));
 
         copiaVector = Arrays.copyOf(vector, vector.length);
-
+        
         TiempoYOrdenamiento.medirTiempo(copiaVector, "Insercion");
         System.out.println("Ordenado con Insercion: " + Arrays.toString(copiaVector));
 
