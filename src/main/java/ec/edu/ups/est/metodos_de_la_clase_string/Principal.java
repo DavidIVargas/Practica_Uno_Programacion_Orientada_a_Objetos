@@ -22,7 +22,7 @@ public class Principal {
         Random rand = new Random();
         int[] vector = new int[cantidadDatos];
         for (int i = 0; i < cantidadDatos; i++) {
-            vector[i] = rand.nextInt(1000); // Números aleatorios hasta 1000 para ejemplo
+            vector[i] = rand.nextInt(1000);
         }
 
         System.out.println("Datos en desorden: " + Arrays.toString(vector));
