@@ -32,7 +32,7 @@ public class TiempoYOrdenamiento {
             case "HeapSort":
                 AlgoritmosOrdenamiento.heapSort(arr);
                 break;
-*/
+                */
             default:
                 System.out.println("Algoritmo no reconocido");
                 return;
