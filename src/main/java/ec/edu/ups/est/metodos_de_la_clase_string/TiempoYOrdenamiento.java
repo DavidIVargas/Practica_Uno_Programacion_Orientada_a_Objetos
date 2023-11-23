@@ -28,14 +28,6 @@ public class TiempoYOrdenamiento {
             case "QuickSort":
                 AlgoritmosOrdenamiento.quickSort(arr, 0, arr.length - 1);
                 break;
-                /*
-            case "HeapSort":
-                AlgoritmosOrdenamiento.heapSort(arr);
-                break;
-                */
-            default:
-                System.out.println("Algoritmo no reconocido");
-                return;
         }
         long endTime = System.nanoTime();
         long tiempoEjecucion = endTime - startTime;
