@@ -15,6 +15,8 @@ public class AlgoritmosOrdenamiento {
     repetimos este proceso varias veces hasta que no se necesiten más cambios
     */
     public static void burbuja(int[] arr) {
+        long startTime = System.nanoTime();
+        // Algoritmo de ordenamiento burbuja
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -25,12 +27,17 @@ public class AlgoritmosOrdenamiento {
                 }
             }
         }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("Tiempo de ejecución de burbuja: " + duration + " nanosegundos");
     }
     /*
     El método de ordenamiento de inserción actua recorriendo la lista a ordenar, 
     tomando el elemento actual e insertándolo donde debería comparandoló entre los que ya ha recorrido.
     */
     public static void insercion(int[] arr) {
+        long startTime = System.nanoTime();
+        // Algoritmo de ordenamiento por inserción
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
             int key = arr[i];
@@ -42,12 +49,17 @@ public class AlgoritmosOrdenamiento {
             }
             arr[j + 1] = key;
         }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("Tiempo de ejecución de inserción: " + duration + " nanosegundos");
     }
     /*
     El Método de ordenamiento por selección consiste en buscar el menor entre todos los elementos no ordenados y colocarlo al principio, 
     se debe repetir lo mismo con los restantes (no se tienen en cuenta los ya ordenados).
     */
     public static void seleccion(int[] arr) {
+        long startTime = System.nanoTime();
+        // Algoritmo de ordenamiento por selección
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int min_idx = i;
@@ -59,18 +71,25 @@ public class AlgoritmosOrdenamiento {
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("Tiempo de ejecución de selección: " + duration + " nanosegundos");
     }
     /*
     Divide el arreglo en mitades hasta que queden subarreglos de tamaño 1.
     Luego combina (mezcla) los subarreglos ordenadamente, fusionando gradualmente en orden ascendente.
     */
     public static void mergeSort(int[] arr, int l, int r) {
+        long startTime = System.nanoTime();
         if (l < r) {
             int m = (l + r) / 2;
             mergeSort(arr, l, m);
             mergeSort(arr, m + 1, r);
             merge(arr, l, m, r);
         }
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("Tiempo de ejecución de mergeSort: " + duration + " nanosegundos");
     }
 
     public static void merge(int[] arr, int l, int m, int r) {
@@ -114,16 +133,24 @@ public class AlgoritmosOrdenamiento {
     Elige un elemento llamado pivote y coloca todos los elementos menores a su izquierda y los mayores a su derecha.
     Luego repite el proceso de forma recursiva para los subarreglos izquierdo y derecho del pivote.
     */
-    public static void quickSort(int[] arr, int low, int high) {
+    public static void quickSort(int[] arr) {
+        long startTime = System.nanoTime();
+        quickSortHelper(arr, 0, arr.length - 1);
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
+        System.out.println("Tiempo de ejecución de quickSort: " + duration + " nanosegundos");
+    }
+
+    private static void quickSortHelper(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
 
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
+            quickSortHelper(arr, low, pi - 1);
+            quickSortHelper(arr, pi + 1, high);
         }
     }
-    
-    public static int partition(int[] arr, int low, int high) {
+
+    private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1);
         for (int j = low; j < high; j++) {
