@@ -59,5 +59,4 @@ public class Principal {
         TiempoYOrdenamiento.medirTiempo(copiaVector, "QuickSort");
         System.out.println("Ordenado con QuickSort: " + Arrays.toString(copiaVector));
     }
-
 }
