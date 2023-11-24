@@ -9,14 +9,14 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
  * @author davidvargas
  */
 public class AlgoritmosOrdenamiento {
+
     /*
     funciona revisando cada elemento de la lista a ordenar con el que le sigue, 
     cambiándolos de posición si están en un orden incorrecto. 
     repetimos este proceso varias veces hasta que no se necesiten más cambios
-    */
+     */
     public static void burbuja(int[] arr) {
         long startTime = System.nanoTime();
-        // Algoritmo de ordenamiento burbuja
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
@@ -31,10 +31,11 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de burbuja: " + duration + " nanosegundos");
     }
+
     /*
     El método de ordenamiento de inserción actua recorriendo la lista a ordenar, 
     tomando el elemento actual e insertándolo donde debería, comparandoló entre los que ya ha recorrido.
-    */
+     */
     public static void insercion(int[] arr) {
         long startTime = System.nanoTime();
         // Algoritmo de ordenamiento por inserción
@@ -53,19 +54,22 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de inserción: " + duration + " nanosegundos");
     }
+
     /*
     El Método de ordenamiento por selección consiste en buscar el menor entre todos los elementos no ordenados y colocarlo al principio, 
     se debe repetir lo mismo con los restantes (no se tienen en cuenta los ya ordenados).
-    */
+     */
     public static void seleccion(int[] arr) {
         long startTime = System.nanoTime();
         // Algoritmo de ordenamiento por selección
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
             int min_idx = i;
-            for (int j = i + 1; j < n; j++)
-                if (arr[j] < arr[min_idx])
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[min_idx]) {
                     min_idx = j;
+                }
+            }
 
             int temp = arr[min_idx];
             arr[min_idx] = arr[i];
@@ -75,16 +79,19 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de selección: " + duration + " nanosegundos");
     }
+
     /*
     Divide el arreglo en mitades hasta que queden subarreglos de tamaño 1.
     Luego combina (mezcla) los subarreglos ordenadamente, fusionando gradualmente en orden ascendente.
-    */
+     */
     /**
- * Ordena un arreglo de enteros utilizando el algoritmo de ordenamiento Merge Sort.
- * @param arr Arreglo de enteros a ordenar.
- * @param l Índice izquierdo del arreglo.
- * @param r Índice derecho del arreglo.
- */
+     * Ordena un arreglo de enteros utilizando el algoritmo de ordenamiento
+     * Merge Sort.
+     *
+     * @param arr Arreglo de enteros a ordenar.
+     * @param l Índice izquierdo del arreglo.
+     * @param r Índice derecho del arreglo.
+     */
     public static void mergeSort(int[] arr, int l, int r) {
         long startTime = System.nanoTime();
         if (l < r) {
@@ -93,17 +100,21 @@ public class AlgoritmosOrdenamiento {
             mergeSort(arr, m + 1, r);
             merge(arr, l, m, r);
         }
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
-        System.out.println("Tiempo de ejecución de mergeSort: " + duration + " nanosegundos");
+        if (l == 0 && r == arr.length - 1) {
+            long endTime = System.nanoTime();
+            long duration = endTime - startTime;
+            System.out.println("Tiempo de ejecución de mergeSort: " + duration + " nanosegundos");
+        }
     }
-/**
- * Realiza la mezcla ordenada de dos sub-arreglos para el Merge Sort.
- * @param arr Arreglo de enteros a ordenar.
- * @param l Índice izquierdo del sub-arreglo.
- * @param m Índice medio del sub-arreglo.
- * @param r Índice derecho del sub-arreglo.
- */
+
+    /**
+     * Realiza la mezcla ordenada de dos sub-arreglos para el Merge Sort.
+     *
+     * @param arr Arreglo de enteros a ordenar.
+     * @param l Índice izquierdo del sub-arreglo.
+     * @param m Índice medio del sub-arreglo.
+     * @param r Índice derecho del sub-arreglo.
+     */
     public static void merge(int[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -111,10 +122,12 @@ public class AlgoritmosOrdenamiento {
         int L[] = new int[n1];
         int R[] = new int[n2];
 
-        for (int i = 0; i < n1; ++i)
+        for (int i = 0; i < n1; ++i) {
             L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
+        }
+        for (int j = 0; j < n2; ++j) {
             R[j] = arr[m + 1 + j];
+        }
 
         int i = 0, j = 0;
         int k = l;
@@ -141,13 +154,14 @@ public class AlgoritmosOrdenamiento {
             k++;
         }
     }
+
     /*
     Elige un elemento llamado pivote y coloca todos los elementos menores a su izquierda y los mayores a su derecha.
     Luego repite el proceso de forma recursiva para los subarreglos izquierdo y derecho del pivote.
     
     * Ordena un arreglo de enteros utilizando el algoritmo de ordenamiento Quick Sort.
     * @param arr Arreglo de enteros a ordenar.
-    */
+     */
     public static void quickSort(int[] arr) {
         long startTime = System.nanoTime();
         quickSortHelper(arr, 0, arr.length - 1);
@@ -155,12 +169,15 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de quickSort: " + duration + " nanosegundos");
     }
+
     /**
-    * Helper privado que implementa la lógica del Quick Sort de forma recursiva.
-    * @param arr Arreglo de enteros a ordenar.
-    * @param low Índice más bajo del arreglo.
-    * @param high Índice más alto del arreglo.
-    */
+     * Helper privado que implementa la lógica del Quick Sort de forma
+     * recursiva.
+     *
+     * @param arr Arreglo de enteros a ordenar.
+     * @param low Índice más bajo del arreglo.
+     * @param high Índice más alto del arreglo.
+     */
     private static void quickSortHelper(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -169,13 +186,16 @@ public class AlgoritmosOrdenamiento {
             quickSortHelper(arr, pi + 1, high);
         }
     }
+
     /**
-    * Partición utilizada en el algoritmo de Quick Sort para dividir el arreglo.
-    * @param arr Arreglo de enteros a ordenar.
-    * @param low Índice más bajo del arreglo.
-    * @param high Índice más alto del arreglo.
-    * @return Índice del pivote.
-    */
+     * Partición utilizada en el algoritmo de Quick Sort para dividir el
+     * arreglo.
+     *
+     * @param arr Arreglo de enteros a ordenar.
+     * @param low Índice más bajo del arreglo.
+     * @param high Índice más alto del arreglo.
+     * @return Índice del pivote.
+     */
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1);
@@ -198,5 +218,5 @@ public class AlgoritmosOrdenamiento {
     //private es para el encapsulamiento y el control de acceso
     /*
     los métodos private están destinados a ser utilizados únicamente dentro de la clase AlgoritmosOrdenamiento y no desde otras clases.
-    */
+     */
 }
