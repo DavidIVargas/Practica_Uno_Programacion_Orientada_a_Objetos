@@ -11,7 +11,7 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
 public class AlgoritmosOrdenamiento {
     /*
     funciona revisando cada elemento de la lista a ordenar con el que le sigue, 
-    cambiándolos de posición si están en un orden incorrecto (n>n+1). 
+    cambiándolos de posición si están en un orden incorrecto. 
     repetimos este proceso varias veces hasta que no se necesiten más cambios
     */
     public static void burbuja(int[] arr) {
@@ -33,7 +33,7 @@ public class AlgoritmosOrdenamiento {
     }
     /*
     El método de ordenamiento de inserción actua recorriendo la lista a ordenar, 
-    tomando el elemento actual e insertándolo donde debería comparandoló entre los que ya ha recorrido.
+    tomando el elemento actual e insertándolo donde debería, comparandoló entre los que ya ha recorrido.
     */
     public static void insercion(int[] arr) {
         long startTime = System.nanoTime();
