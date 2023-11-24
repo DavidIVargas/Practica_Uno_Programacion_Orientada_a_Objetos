@@ -79,6 +79,12 @@ public class AlgoritmosOrdenamiento {
     Divide el arreglo en mitades hasta que queden subarreglos de tamaño 1.
     Luego combina (mezcla) los subarreglos ordenadamente, fusionando gradualmente en orden ascendente.
     */
+    /**
+ * Ordena un arreglo de enteros utilizando el algoritmo de ordenamiento Merge Sort.
+ * @param arr Arreglo de enteros a ordenar.
+ * @param l Índice izquierdo del arreglo.
+ * @param r Índice derecho del arreglo.
+ */
     public static void mergeSort(int[] arr, int l, int r) {
         long startTime = System.nanoTime();
         if (l < r) {
@@ -91,7 +97,13 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de mergeSort: " + duration + " nanosegundos");
     }
-
+/**
+ * Realiza la mezcla ordenada de dos sub-arreglos para el Merge Sort.
+ * @param arr Arreglo de enteros a ordenar.
+ * @param l Índice izquierdo del sub-arreglo.
+ * @param m Índice medio del sub-arreglo.
+ * @param r Índice derecho del sub-arreglo.
+ */
     public static void merge(int[] arr, int l, int m, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
@@ -132,6 +144,9 @@ public class AlgoritmosOrdenamiento {
     /*
     Elige un elemento llamado pivote y coloca todos los elementos menores a su izquierda y los mayores a su derecha.
     Luego repite el proceso de forma recursiva para los subarreglos izquierdo y derecho del pivote.
+    
+    * Ordena un arreglo de enteros utilizando el algoritmo de ordenamiento Quick Sort.
+    * @param arr Arreglo de enteros a ordenar.
     */
     public static void quickSort(int[] arr) {
         long startTime = System.nanoTime();
@@ -140,7 +155,12 @@ public class AlgoritmosOrdenamiento {
         long duration = endTime - startTime;
         System.out.println("Tiempo de ejecución de quickSort: " + duration + " nanosegundos");
     }
-
+    /**
+    * Helper privado que implementa la lógica del Quick Sort de forma recursiva.
+    * @param arr Arreglo de enteros a ordenar.
+    * @param low Índice más bajo del arreglo.
+    * @param high Índice más alto del arreglo.
+    */
     private static void quickSortHelper(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
@@ -149,7 +169,13 @@ public class AlgoritmosOrdenamiento {
             quickSortHelper(arr, pi + 1, high);
         }
     }
-
+    /**
+    * Partición utilizada en el algoritmo de Quick Sort para dividir el arreglo.
+    * @param arr Arreglo de enteros a ordenar.
+    * @param low Índice más bajo del arreglo.
+    * @param high Índice más alto del arreglo.
+    * @return Índice del pivote.
+    */
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1);
