@@ -195,4 +195,8 @@ public class AlgoritmosOrdenamiento {
 
         return i + 1;
     }
+    //private es para el encapsulamiento y el control de acceso
+    /*
+    los métodos private están destinados a ser utilizados únicamente dentro de la clase AlgoritmosOrdenamiento y no desde otras clases.
+    */
 }
