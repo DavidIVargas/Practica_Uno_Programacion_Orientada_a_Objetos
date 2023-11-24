@@ -10,9 +10,9 @@ package ec.edu.ups.est.metodos_de_la_clase_string;
  */
 public class AlgoritmosOrdenamiento {
     /*
-    Recorre el arreglo múltiples veces.
-    Compara cada elemento con el siguiente e intercambia si están en el orden incorrecto, 
-    llevando los elementos más grandes hacia el final del arreglo en cada pasada.
+    funciona revisando cada elemento de la lista a ordenar con el que le sigue, 
+    cambiándolos de posición si están en un orden incorrecto (n>n+1). 
+    repetimos este proceso varias veces hasta que no se necesiten más cambios
     */
     public static void burbuja(int[] arr) {
         int n = arr.length;
@@ -27,9 +27,8 @@ public class AlgoritmosOrdenamiento {
         }
     }
     /*
-    Itera sobre el arreglo.
-    Para cada elemento, lo compara con los elementos a su izquierda en el arreglo ordenado, 
-    insertándolo en la posición correcta y desplazando los elementos mayores una posición hacia la derecha.
+    El método de ordenamiento de inserción actua recorriendo la lista a ordenar, 
+    tomando el elemento actual e insertándolo donde debería comparandoló entre los que ya ha recorrido.
     */
     public static void insercion(int[] arr) {
         int n = arr.length;
@@ -45,8 +44,8 @@ public class AlgoritmosOrdenamiento {
         }
     }
     /*
-    Busca el elemento más pequeño en el arreglo y lo intercambia con el primer elemento.
-    Luego busca el segundo elemento más pequeño y lo intercambia con el segundo lugar, y así sucesivamente.
+    El Método de ordenamiento por selección consiste en buscar el menor entre todos los elementos no ordenados y colocarlo al principio, 
+    se debe repetir lo mismo con los restantes (no se tienen en cuenta los ya ordenados).
     */
     public static void seleccion(int[] arr) {
         int n = arr.length;
